@@ -17,17 +17,13 @@ fi
 
 }
 
-echo "installing nginx"
-dnf install nginx -y
-VALIDATE $? ,"installing Nginx"
+INSTALL_PACKAGE() {
+   PACKAGE_NAME=$1
+  echo "Installing $PACKAGE_NAME"
+  dnf install $PACKAGE_NAME -y
+  VALIDATE $? "Installing $PACKAGE_NAME"
+}
 
-
-echo "installing mysql"
-dnf install mysql -y
-VALIDATE $? ,"installing Nginx"
-
-
-echo "installing node"
-dnf install node -y
-VALIDATE $? ,"installing Nginx"
-
+INSTALL_PACKAGE nginx
+INSTALL_PACKAGE mysql
+INSTALL_PACKAGE nodejs
