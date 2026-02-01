@@ -34,6 +34,6 @@ echo "$package not installed ,installing now"
   dnf install $package -y &>> $LOGS_FILE
   VALIDATE $? "Installing $package"
   else 
-  echo "$package already installed ,skipping now"
+  echo "$package $G already installed ,skipping now $N"
   fi
 done
